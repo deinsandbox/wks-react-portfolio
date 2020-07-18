@@ -25,11 +25,13 @@ function About() {
         <p>{information.about_me}</p>
         <ul className="skills">
           {information.skills &&
-            information.skills.map((skill, index) => (
-              <li className="skill" key={index}>
-                {skill}
-              </li>
-            ))}
+            information.skills.map((skill, index) => {
+              return (
+                <li className="skill" key={index}>
+                  {skill}
+                </li>
+              );
+            })}
         </ul>
       </div>
     </div>
