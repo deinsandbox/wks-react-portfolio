@@ -16,7 +16,7 @@ function About() {
         <img
           className="about-photo-profile"
           src={information.photo}
-          alt="Profile Photo"
+          alt="Profile"
         />
       </div>
       <div className="description">
