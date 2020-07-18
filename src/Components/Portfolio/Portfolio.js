@@ -12,27 +12,25 @@ function Portfolio() {
 
   return (
     <div className="portfolio">
-      <>
-        <div className="card-portfolio">
-          {projects &&
-            projects.map((project, index) => {
-              return (
-                <div key={index} className="card-project">
-                  <h1>{project.name}</h1>
-                  <img
-                    className="project-image"
-                    src={project.image}
-                    alt="Project Image"
-                  />
-                  <p>{project.description}</p>
-                  <a className="visit-project" href={project.link}>
-                    Visit Project
-                  </a>
-                </div>
-              );
-            })}
-        </div>
-      </>
+      <div className="card-portfolio">
+        {projects.length &&
+          projects.map((project, index) => {
+            return (
+              <div key={index} className="card-project">
+                <h1> {project.name} </h1>
+                <img
+                  className="project-image"
+                  src={project.image}
+                  alt="Project Image"
+                />
+                <p> {project.description} </p>
+                <a className="visit-project" href={project.link}>
+                  Visit Project
+                </a>
+              </div>
+            );
+          })}
+      </div>
     </div>
   );
 }
