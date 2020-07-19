@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-import SvgIcon from "../../Common/SvgIcon";
+import SvgIcons from "../../Common/SvgIcons";
 
 import "../../utils/icons.css";
 import "./About.css";
@@ -53,7 +53,7 @@ function About() {
                 <li className="skills--item" key={index}>
                   {slug && (
                     <span className={`skill--icon tech--icon__${slug}`}>
-                      <SvgIcon path={path} hex={hex} color={color} />
+                      <SvgIcons path={path} hex={hex} color={color} />
                     </span>
                   )}
                   <span className="skill-text"> {name} </span>
