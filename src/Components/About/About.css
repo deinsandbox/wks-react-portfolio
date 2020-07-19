@@ -8,7 +8,8 @@
 }
 
 .skills-item {
-  box-sizing: content-box;
+  /* box-sizing: content-box; */
+  height: 10px;
   /* padding-left: 1.3em; */
 }
 
@@ -17,7 +18,8 @@
   border-radius: 15px;
 }
 
-.skill--icon img {
+.skill--icon svg {
+  border: 1px solid red;
   margin: 0.2em;
   width: 2.3em;
 }

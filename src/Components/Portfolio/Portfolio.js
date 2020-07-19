@@ -4,11 +4,13 @@ import "./Portfolio.css";
 
 function Portfolio() {
   const [projects, setProjects] = useState([]);
+
   useEffect(() => {
     axios
       .get("https://ws-node-portfolio.herokuapp.com/portfolio")
-      .then(({ data }) => setProjects);
-  });
+      .then(({ data }) => setProjects(data))
+      .catch((error) => console.log(error));
+  }, []);
 
   return (
     <div className="portfolio">

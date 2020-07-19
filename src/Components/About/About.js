@@ -1,21 +1,39 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import SvgIcon from "../../Common/SvgIcon";
 
-import { svgIcon } from "../../Common/svgIcon";
-
-import { getIcon } from "../../Common/icons";
-import "../../Common/icons.css";
-
+import "../../utils/icons.css";
 import "./About.css";
 
 function About() {
   const [information, setInformation] = useState({});
+  const [skills, setSkills] = useState([]);
   useEffect(() => {
     axios
       .get("https://ws-node-portfolio.herokuapp.com/about")
-      .then(({ data }) => setInformation)
-      .catch((error) => console.log);
-  });
+      .then(({ data }) => {
+        setInformation(data);
+
+        const iconsReq = data.skills.map((skill) => {
+          const options = {
+            slug: skill,
+          };
+
+          return axios.post(
+            "https://ws-node-portfolio.herokuapp.com/icon",
+            options
+          );
+        });
+
+        axios.all(iconsReq).then(
+          axios.spread((...res) => {
+            const icons = res.map(({ data }) => data);
+            icons.length && setSkills(icons);
+          })
+        );
+      })
+      .catch((error) => console.log(error));
+  }, []);
 
   return (
     <div className="about">
@@ -28,17 +46,16 @@ function About() {
         <p>{information.about}</p>
         <p>{information.from}</p>
         <ul className="skills">
-          {information.skills &&
-            information.skills.map((skill, index) => {
-              const icon = getIcon(skill);
+          {skills.length &&
+            skills.map(({ slug, path, hex, color, name }, index) => {
               return (
                 <li className="skills--item" key={index}>
-                  {icon && (
-                    <span className={`skill--icon tech--icon__${icon.name}`}>
-                      <svgIcon name={icon.name} fill={icon.fill} />
+                  {slug && (
+                    <span className={`skill--icon tech--icon__${slug}`}>
+                      <SvgIcon path={path} hex={hex} color={color} />
                     </span>
                   )}
-                  <span className="skill-text"> {skill} </span>
+                  <span className="skill-text"> {name} </span>
                 </li>
               );
             })}
