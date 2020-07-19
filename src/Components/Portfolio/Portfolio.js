@@ -3,11 +3,11 @@ import axios from "axios";
 import "./Portfolio.css";
 
 function Portfolio() {
-  const [projects, setProjects] = useState({});
+  const [projects, setProjects] = useState([]);
   useEffect(() => {
     axios
       .get("https://ws-node-portfolio.herokuapp.com/portfolio")
-      .then((res) => setProjects(res.data[0]));
+      .then((res) => setProjects(res.data));
   });
 
   return (
@@ -21,7 +21,7 @@ function Portfolio() {
                 <img
                   className="project-image"
                   src={project.image}
-                  alt="Project Image"
+                  alt="Project"
                 />
                 <p> {project.description} </p>
                 <a className="visit-project" href={project.link}>
