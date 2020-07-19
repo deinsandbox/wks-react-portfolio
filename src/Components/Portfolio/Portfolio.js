@@ -7,7 +7,7 @@ function Portfolio() {
   useEffect(() => {
     axios
       .get("https://ws-node-portfolio.herokuapp.com/portfolio")
-      .then((res) => setProjects(res.data));
+      .then(({ data }) => setProjects);
   });
 
   return (

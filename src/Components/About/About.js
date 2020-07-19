@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { getIconURL } from "../../Common/icons";
+
+import { svgIcon } from "../../Common/svgIcon";
+
+import { getIcon } from "../../Common/icons";
+import "../../Common/icons.css";
+
 import "./About.css";
 
 function About() {
@@ -8,45 +13,32 @@ function About() {
   useEffect(() => {
     axios
       .get("https://ws-node-portfolio.herokuapp.com/about")
-      .then((res) => setInformation(res.data));
+      .then(({ data }) => setInformation)
+      .catch((error) => console.log);
   });
 
   return (
     <div className="about">
       <div className="about__avatar">
-        <img className="about__picture" src={information.photo} alt="Profile" />
+        {/* <img className="about__picture" src={information.photo} alt="Profile" /> */}
       </div>
       <div className="about__description">
         <h1>{information.name}</h1>
         <h2>{information.profession}</h2>
         <p>{information.about}</p>
         <p>{information.from}</p>
-        <ul>
+        <ul className="skills">
           {information.skills &&
             information.skills.map((skill, index) => {
-              const { url } = getIcon(skill);
-
+              const icon = getIcon(skill);
               return (
-                <li className="skill" key={index}>
-                  <span>
-                    <img className="skill__icon" src={url} />
-                  </span>
-                  <span>{skill}</span>
-                </li>
-              );
-            })}
-        </ul>
-        <ul>
-          {information.learn &&
-            information.learn.map((learn, index) => {
-              const { url } = getIcon(learn);
-
-              return (
-                <li className="learn" key={index}>
-                  <span>
-                    <img className="learn__icon" src={url} />
-                  </span>
-                  <span>{learn}</span>
+                <li className="skills--item" key={index}>
+                  {icon && (
+                    <span className={`skill--icon tech--icon__${icon.name}`}>
+                      <svgIcon name={icon.name} fill={icon.fill} />
+                    </span>
+                  )}
+                  <span className="skill-text"> {skill} </span>
                 </li>
               );
             })}

@@ -1,14 +1,30 @@
-.about {
-}
-
-.about-photo {
-}
-
-.about-photo-profile {
-}
-
-.description {
-}
-
 .skills {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+
+  list-style: none;
+  padding: 0;
+}
+
+.skills-item {
+  box-sizing: content-box;
+  /* padding-left: 1.3em; */
+}
+
+.skill--icon {
+  width: 1.3em;
+  border-radius: 15px;
+}
+
+.skill--icon img {
+  margin: 0.2em;
+  width: 2.3em;
+}
+
+.skill-text {
+  /* display: inline-block;
+  padding: 0.2em;
+  margin-left: 1.3em;
+  width: 1.3em; */
 }
