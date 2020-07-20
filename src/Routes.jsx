@@ -1,13 +1,13 @@
-import React from "react";
+import React from 'react';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   useHistory,
-} from "react-router-dom";
+} from 'react-router-dom';
 
-import Home from "./Components/Home/Home";
-import Article from "./Components/Blog/Article";
+import Home from './components/pages/Home/Home';
+import Article from './components/pages/Blog/Article';
 
 const Routes = () => {
   const history = useHistory();

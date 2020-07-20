@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import "./Blog.css";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import './Blog.css';
 
 const Blog = ({ history }) => {
-  const USERNAME = "equiman";
+  const USERNAME = 'equiman';
   const [list, setList] = useState([]);
 
   const handleOnClick = (e) => {
@@ -17,9 +17,8 @@ const Blog = ({ history }) => {
       .get(`${BLOG_API}/articles?username=${USERNAME}`)
       .then(({ data }) => {
         const result = data.filter(
-          (article) => !article?.title.startsWith("Curso JSON - ")
+          (article) => !article?.title.startsWith('Curso JSON - ')
         );
-        console.log(result);
         setList(result);
       })
       .catch((error) => console.log(error));
@@ -39,7 +38,11 @@ const Blog = ({ history }) => {
 
               <p>{description}</p>
 
-              <div>{tag_list.length && `#${tag_list.join(", #")}`}</div>
+              <div>{tag_list.length && `#${tag_list.join(' #')}`}</div>
+
+              <button data-id={id} onClick={handleOnClick}>
+                Leer
+              </button>
             </section>
           );
         })}

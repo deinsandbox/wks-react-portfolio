@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-const COLOR_WHITE = "ffffff";
+const COLOR_WHITE = 'ffffff';
 
 const SvgIcons = ({ hex, path, color = COLOR_WHITE }) => {
   return (

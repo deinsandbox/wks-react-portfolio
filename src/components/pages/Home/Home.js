@@ -1,9 +1,9 @@
-import React from "react";
-import "./Home.css";
+import React from 'react';
+import './Home.css';
 
-import About from "../About/About";
-import Portfolio from "../Portfolio/Portfolio";
-import Blog from "../Blog/Blog";
+import About from '../About/About';
+import Portfolio from '../Portfolio/Portfolio';
+import Blog from '../Blog/Blog';
 
 const Home = ({ history }) => {
   return (

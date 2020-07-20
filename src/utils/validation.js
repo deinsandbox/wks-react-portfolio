@@ -1,3 +1,3 @@
 export const isEmptyObject = (object) => {
-  return JSON.stringify(object) === "{}";
+  return JSON.stringify(object) === '{}';
 };

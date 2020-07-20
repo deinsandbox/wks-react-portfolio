@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { isEmptyObject } from "../../utils/validaton";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { isEmptyObject } from '../../../utils/validation';
 
-import SvgIcons from "../../Common/SvgIcons";
+import SvgIcons from '../../common/SvgIcons';
 
-import "../../assets/styles/icons.css";
-import "./About.css";
+import '../../../assets/styles/icons.css';
+import './About.css';
 
 const About = () => {
   const [information, setInformation] = useState({});

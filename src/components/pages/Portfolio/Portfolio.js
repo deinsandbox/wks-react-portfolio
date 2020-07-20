@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import "./Portfolio.css";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import './Portfolio.css';
 
 const Portfolio = () => {
   const [projects, setProjects] = useState([]);
@@ -16,11 +16,12 @@ const Portfolio = () => {
   return (
     <div className="portfolio">
       <div className="card-portfolio">
+        {!!projects.length && <h1>Projects</h1>}
         {!!projects.length &&
           projects.map((project, index) => {
             return (
               <div key={index} className="card-project">
-                <h1> {project.name} </h1>
+                <h2> {project.name} </h2>
                 <img
                   className="project-image"
                   src={project.image}
