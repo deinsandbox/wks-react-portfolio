@@ -6,8 +6,9 @@ const Portfolio = () => {
   const [projects, setProjects] = useState([]);
 
   useEffect(() => {
+    const BACK_API = process.env.REACT_APP_BACK_API;
     axios
-      .get("https://wks-node-portfolio.herokuapp.com/portfolio")
+      .get(`${BACK_API}/portfolio`)
       .then(({ data }) => setProjects(data))
       .catch((error) => console.log(error));
   }, []);
@@ -15,7 +16,7 @@ const Portfolio = () => {
   return (
     <div className="portfolio">
       <div className="card-portfolio">
-        {projects.length &&
+        {!!projects.length &&
           projects.map((project, index) => {
             return (
               <div key={index} className="card-project">

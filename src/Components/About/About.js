@@ -11,8 +11,9 @@ const About = () => {
   const [information, setInformation] = useState({});
   const [skills, setSkills] = useState([]);
   useEffect(() => {
+    const BACK_API = process.env.REACT_APP_BACK_API;
     axios
-      .get("https://wks-node-portfolio.herokuapp.com/about")
+      .get(`${BACK_API}/about`)
       .then(({ data }) => {
         setInformation(data);
 
@@ -21,10 +22,7 @@ const About = () => {
             slug: skill,
           };
 
-          return axios.post(
-            "https://wks-node-portfolio.herokuapp.com/icon",
-            options
-          );
+          return axios.post(`${BACK_API}/icon`, options);
         });
 
         axios.all(iconsReq).then(
@@ -53,7 +51,7 @@ const About = () => {
           <p>{information.about}</p>
           <p>{information.from}</p>
           <ul className="skills">
-            {skills.length &&
+            {!!skills.length &&
               skills.map(({ slug, path, hex, color, name }, index) => {
                 return (
                   <li className="skills--item" key={index}>

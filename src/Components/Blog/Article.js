@@ -11,8 +11,9 @@ const Article = () => {
   const [content, setContent] = useState({});
 
   useEffect(() => {
+    const BLOG_API = process.env.REACT_APP_BLOG_API;
     axios
-      .get(`https://dev.to/api/articles/${id}`)
+      .get(`${BLOG_API}/${id}`)
       .then(({ data }) => {
         setContent(data);
       })

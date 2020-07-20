@@ -12,8 +12,9 @@ const Blog = ({ history }) => {
   };
 
   useEffect(() => {
+    const BLOG_API = process.env.REACT_APP_BLOG_API;
     axios
-      .get(`https://dev.to/api/articles?username=${USERNAME}`)
+      .get(`${BLOG_API}/articles?username=${USERNAME}`)
       .then(({ data }) => {
         const result = data.filter(
           (article) => !article?.title.startsWith("Curso JSON - ")
@@ -28,7 +29,7 @@ const Blog = ({ history }) => {
     <section>
       <h1>Blog</h1>
 
-      {list.length &&
+      {!!list.length &&
         list.map(({ id, title, description, tag_list }, index) => {
           return (
             <section key={index}>
