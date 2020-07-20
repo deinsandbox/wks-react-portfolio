@@ -7,7 +7,7 @@ const Portfolio = () => {
 
   useEffect(() => {
     axios
-      .get("https://ws-node-portfolio.herokuapp.com/portfolio")
+      .get("https://wks-node-portfolio.herokuapp.com/portfolio")
       .then(({ data }) => setProjects(data))
       .catch((error) => console.log(error));
   }, []);

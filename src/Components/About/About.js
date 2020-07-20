@@ -12,7 +12,7 @@ const About = () => {
   const [skills, setSkills] = useState([]);
   useEffect(() => {
     axios
-      .get("https://ws-node-portfolio.herokuapp.com/about")
+      .get("https://wks-node-portfolio.herokuapp.com/about")
       .then(({ data }) => {
         setInformation(data);
 
@@ -22,7 +22,7 @@ const About = () => {
           };
 
           return axios.post(
-            "https://ws-node-portfolio.herokuapp.com/icon",
+            "https://wks-node-portfolio.herokuapp.com/icon",
             options
           );
         });
