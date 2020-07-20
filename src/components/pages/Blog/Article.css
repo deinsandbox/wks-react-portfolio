@@ -4,7 +4,8 @@
   height: auto;
 }
 
-.content p {
+.content p,
+.content pre {
   text-align: justify;
 }
 
