@@ -13,7 +13,7 @@ const Article = () => {
   useEffect(() => {
     const BLOG_API = process.env.REACT_APP_BLOG_API;
     axios
-      .get(`${BLOG_API}/${id}`)
+      .get(`${BLOG_API}/articles/${id}`)
       .then(({ data }) => {
         setContent(data);
       })
