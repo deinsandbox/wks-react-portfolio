@@ -1,0 +1,18 @@
+.cover,
+.content img {
+  width: 100%;
+  height: auto;
+}
+
+.content p {
+  text-align: justify;
+}
+
+.content > p:first-of-type,
+.content > h2:first-of-type {
+  display: none;
+}
+
+.content > p:last-of-type {
+  display: none;
+}

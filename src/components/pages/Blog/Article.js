@@ -26,17 +26,23 @@ const Article = ({ history }) => {
 
   return (
     !isEmptyObject(content) && (
-      <>
+      <div class="article">
+        <img class="cover" src={content.cover_image} />
+
         <h1>{content.title}</h1>
 
         <p>{content.description}</p>
 
-        <ReactMarkdown source={content.body_markdown} escapeHtml={false} />
+        <ReactMarkdown
+          className="content"
+          source={content.body_markdown}
+          escapeHtml={false}
+        />
 
         <div>{content.tags.length && `#${content.tags.join(' #')}`}</div>
 
         <button onClick={handleOnClick}>Regresar</button>
-      </>
+      </div>
     )
   );
 };
