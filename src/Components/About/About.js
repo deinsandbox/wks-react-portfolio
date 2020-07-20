@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { isEmptyObject } from "../../utils/validaton";
 
 import SvgIcons from "../../Common/SvgIcons";
 
-import "../../utils/icons.css";
+import "../../assets/styles/icons.css";
 import "./About.css";
 
-function About() {
+const About = () => {
   const [information, setInformation] = useState({});
   const [skills, setSkills] = useState([]);
   useEffect(() => {
@@ -37,33 +38,39 @@ function About() {
   }, []);
 
   return (
-    <div className="about">
-      <div className="about__avatar">
-        <img className="about__picture" src={information.photo} alt="Profile" />
+    !isEmptyObject(information) && (
+      <div className="about">
+        <div className="about__avatar">
+          <img
+            className="about__picture"
+            src={information.photo}
+            alt="Profile"
+          />
+        </div>
+        <div className="about__description">
+          <h1>{information.name}</h1>
+          <h2>{information.profession}</h2>
+          <p>{information.about}</p>
+          <p>{information.from}</p>
+          <ul className="skills">
+            {skills.length &&
+              skills.map(({ slug, path, hex, color, name }, index) => {
+                return (
+                  <li className="skills--item" key={index}>
+                    {slug && (
+                      <span className={`skill--icon tech--icon__${slug}`}>
+                        <SvgIcons path={path} hex={hex} color={color} />
+                      </span>
+                    )}
+                    <span className="skill-text"> {name} </span>
+                  </li>
+                );
+              })}
+          </ul>
+        </div>
       </div>
-      <div className="about__description">
-        <h1>{information.name}</h1>
-        <h2>{information.profession}</h2>
-        <p>{information.about}</p>
-        <p>{information.from}</p>
-        <ul className="skills">
-          {skills.length &&
-            skills.map(({ slug, path, hex, color, name }, index) => {
-              return (
-                <li className="skills--item" key={index}>
-                  {slug && (
-                    <span className={`skill--icon tech--icon__${slug}`}>
-                      <SvgIcons path={path} hex={hex} color={color} />
-                    </span>
-                  )}
-                  <span className="skill-text"> {name} </span>
-                </li>
-              );
-            })}
-        </ul>
-      </div>
-    </div>
+    )
   );
-}
+};
 
 export default About;

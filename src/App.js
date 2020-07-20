@@ -1,13 +1,12 @@
 import React from "react";
 import "./App.css";
-import About from "./Components/About/About";
-import Portfolio from "./Components/Portfolio/Portfolio";
+
+import Routes from "./Routes";
 
 function App() {
   return (
     <div className="App">
-      <About />
-      <Portfolio />
+      <Routes />
     </div>
   );
 }

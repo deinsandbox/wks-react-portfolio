@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./Portfolio.css";
 
-function Portfolio() {
+const Portfolio = () => {
   const [projects, setProjects] = useState([]);
 
   useEffect(() => {
@@ -35,6 +35,6 @@ function Portfolio() {
       </div>
     </div>
   );
-}
+};
 
 export default Portfolio;
