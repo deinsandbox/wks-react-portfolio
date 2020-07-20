@@ -26,8 +26,8 @@ const Article = ({ history }) => {
 
   return (
     !isEmptyObject(content) && (
-      <div class="article">
-        <img class="cover" src={content.cover_image} />
+      <div className="article">
+        <img className="cover" src={content.cover_image} alt="Cover" />
 
         <h1>{content.title}</h1>
 
