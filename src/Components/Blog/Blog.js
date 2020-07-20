@@ -27,7 +27,7 @@ const Blog = ({ history }) => {
 
   return (
     <section>
-      <h1>Blog</h1>
+      {!!list.length && <h1>Blog</h1>}
 
       {!!list.length &&
         list.map(({ id, title, description, tag_list }, index) => {

@@ -2,9 +2,6 @@
   display: grid;
   grid-gap: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-
-  list-style: none;
-  padding: 0;
 }
 
 .skills-item {
@@ -19,7 +16,6 @@
 }
 
 .skill--icon svg {
-  border: 1px solid red;
   margin: 0.2em;
   width: 2.3em;
 }

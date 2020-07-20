@@ -50,21 +50,21 @@ const About = () => {
           <h2>{information.profession}</h2>
           <p>{information.about}</p>
           <p>{information.from}</p>
-          <ul className="skills">
+          <div className="skills">
             {!!skills.length &&
               skills.map(({ slug, path, hex, color, name }, index) => {
                 return (
-                  <li className="skills--item" key={index}>
+                  <div className="skills--item" key={index}>
                     {slug && (
                       <span className={`skill--icon tech--icon__${slug}`}>
                         <SvgIcons path={path} hex={hex} color={color} />
                       </span>
                     )}
                     <span className="skill-text"> {name} </span>
-                  </li>
+                  </div>
                 );
               })}
-          </ul>
+          </div>
         </div>
       </div>
     )
